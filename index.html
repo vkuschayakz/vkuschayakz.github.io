@@ -1,0 +1,36 @@
+html<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Каталог товаров</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header>
+        <h1>Мой Магазин</h1>
+        <div class="search-box">
+            <input type="text" id="search-input" placeholder="Поиск товаров...">
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Боковая панель с категориями -->
+        <aside class="filters">
+            <h3>Категории</h3>
+            <button class="filter-btn active" data-category="all">Все товары</button>
+            <button class="filter-btn" data-category="electronics">Электроника</button>
+            <button class="filter-btn" data-category="clothes">Одежда</button>
+            <button class="filter-btn" data-category="home">Для дома</button>
+        </aside>
+
+        <!-- Сетка товаров -->
+        <main class="products-grid" id="products-container">
+            <!-- Товары загружаются автоматически через JS -->
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
