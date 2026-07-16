@@ -9,7 +9,7 @@ const products = [
     },
     {
         id: 2,
-        name: "Шу пуэр "Королевское качество" 2018 год",
+        name: "Шу пуэр Королевское качество 2018 год",
         category: "tea",
         price: "13 000 ₸",
         image: "image/1.jpeg"
