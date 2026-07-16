@@ -2,8 +2,8 @@
 const products = [
     {
         id: 1,
-        name: "Смартфон Нового Поколения",
-        category: "electronics",
+        name: "Шу пуэр",
+        category: "tea",
         price: "13 000 ₸",
         image: "images/1.jpeg"
     },
