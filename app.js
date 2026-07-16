@@ -41,10 +41,14 @@ const container = document.getElementById("products-container");
 const searchInput = document.getElementById("search-input");
 const filterBtns = document.querySelectorAll(".filter-btn");
 
+// Элементы модального окна
+const modal = document.getElementById("image-modal");
+const modalImg = document.getElementById("modal-img");
+const modalClose = document.querySelector(".modal-close");
+
 let currentCategory = "all";
 let searchQuery = "";
 
-// Функция для отрисовки товаров на экране
 function displayProducts() {
     const filtered = products.filter(product => {
         const matchesCategory = currentCategory === "all" || product.category === currentCategory;
@@ -57,31 +61,50 @@ function displayProducts() {
         return;
     }
 
+    // Обратите внимание: добавлен класс "product-img" для отслеживания кликов
     container.innerHTML = filtered.map(product => `
         <div class="product-card">
-            <img src="${product.image}" alt="${product.name}">
+            <img src="${product.image}" alt="${product.name}" class="product-img">
             <h4>${product.name}</h4>
             <div class="price">${product.price}</div>
         </div>
     `).join("");
 }
 
-// Отслеживание ввода в поиск
+// ЛОГИКА МОДАЛЬНОГО ОКНА
+// Открытие при клике на картинку товара
+container.addEventListener("click", (e) => {
+    if (e.target.classList.contains("product-img")) {
+        modal.style.display = "flex";
+        modalImg.src = e.target.src;
+    }
+});
+
+// Закрытие при клике на крестик
+modalClose.addEventListener("click", () => {
+    modal.style.display = "none";
+});
+
+// Закрытие при клике на любой черный фон вокруг картинки
+modal.addEventListener("click", (e) => {
+    if (e.target === modal) {
+        modal.style.display = "none";
+    }
+});
+
+// Поиск и фильтры
 searchInput.addEventListener("input", (e) => {
     searchQuery = e.target.value;
     displayProducts();
 });
 
-// Отслеживание кликов по категориям
 filterBtns.forEach(btn => {
     btn.addEventListener("click", (e) => {
         filterBtns.forEach(b => b.classList.remove("active"));
         e.target.classList.add("active");
-        
         currentCategory = e.target.dataset.category;
         displayProducts();
     });
 });
 
-// Запуск при загрузке страницы
 displayProducts();
