@@ -3,7 +3,7 @@ const products = [
     {
         id: 1,
         name: "Шу пуэр",
-        category: "tea",
+        category: "electronics",
         price: "13 000 ₸",
         image: "images/1.jpeg"
     },
