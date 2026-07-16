@@ -9,10 +9,10 @@ const products = [
     },
     {
         id: 2,
-        name: "Беспроводные Наушники",
-        category: "electronics",
-        price: "25 000 ₸",
-        image: "https://unsplash.com"
+        name: "Шу пуэр "Королевское качество" 2018 год",
+        category: "tea",
+        price: "13 000 ₸",
+        image: "image/1.jpeg"
     },
     {
         id: 3,
