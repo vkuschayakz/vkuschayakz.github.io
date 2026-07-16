@@ -49,7 +49,7 @@ const modalClose = document.querySelector(".modal-close");
 let currentCategory = "all";
 let searchQuery = "";
 
-// Функция для отрисовки товаров на экране
+/// Функция для отрисовки товаров на экране
 function displayProducts() {
     const filtered = products.filter(product => {
         const matchesCategory = currentCategory === "all" || product.category === currentCategory;
@@ -70,6 +70,26 @@ function displayProducts() {
         </div>
     `).join("");
 }
+
+// Отслеживание ввода в поиск
+searchInput.addEventListener("input", (e) => {
+    searchQuery = e.target.value;
+    displayProducts();
+});
+
+// Отслеживание кликов по категориям
+filterBtns.forEach(btn => {
+    btn.addEventListener("click", (e) => {
+        filterBtns.forEach(b => b.classList.remove("active"));
+        e.target.classList.add("active");
+        
+        currentCategory = e.target.dataset.category;
+        displayProducts();
+    });
+});
+
+// Запуск при загрузке страницы
+displayProducts();
 
 
 // ЛОГИКА МОДАЛЬНОГО ОКНА
