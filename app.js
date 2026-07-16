@@ -4,8 +4,8 @@ const products = [
         id: 1,
         name: "Смартфон Нового Поколения",
         category: "electronics",
-        price: "120 000 ₸",
-        image: "https://unsplash.com"
+        price: "13 000 ₸",
+        image: "images/"
     },
     {
         id: 2,
