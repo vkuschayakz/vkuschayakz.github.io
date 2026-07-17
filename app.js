@@ -50,7 +50,7 @@ let currentCategory = "all";
 let searchQuery = "";
 
 // ЗАМЕНИТЕ ЭТОТ НОМЕР НА ВАШ (без +, пробелов и дефисов)
-const WHATSAPP_NUMBER = "77071234567"; 
+const WHATSAPP_NUMBER = "77073336787"; 
 
 function displayProducts() {
     const filtered = products.filter(product => {
