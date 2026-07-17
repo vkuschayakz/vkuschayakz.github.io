@@ -49,9 +49,7 @@ const modalClose = document.querySelector(".modal-close");
 let currentCategory = "all";
 let searchQuery = "";
 
-// ЗАМЕНИТЕ ЭТОТ НОМЕР НА ВАШ (без +, пробелов и дефисов)
-const WHATSAPP_NUMBER = "https://wa.me/+77073336787"; 
-
+// Функция для отрисовки товаров на экране
 function displayProducts() {
     const filtered = products.filter(product => {
         const matchesCategory = currentCategory === "all" || product.category === currentCategory;
@@ -64,21 +62,13 @@ function displayProducts() {
         return;
     }
 
-    container.innerHTML = filtered.map(product => {
-        // Формируем текст сообщения для WhatsApp (автоматически подставляем название товара)
-        const message = encodeURIComponent(`Здравствуйте! Хочу заказать товар: "${product.name}" по цене ${product.price}.`);
-        const whatsappLink = `https://wa.me{WHATSAPP_NUMBER}?text=${message}`;
-
-        return `
-            <div class="product-card">
-                <img src="${product.image}" alt="${product.name}" class="product-img">
-                <h4>${product.name}</h4>
-                <div class="price">${product.price}</div>
-                <!-- Кнопка КУПИТЬ со ссылкой на ваш WhatsApp -->
-                <a href="${whatsappLink}" target="_blank" class="buy-btn">Купить</a>
-            </div>
-        `;
-    }).join("");
+    container.innerHTML = filtered.map(product => `
+        <div class="product-card">
+            <img src="${product.image}" alt="${product.name}">
+            <h4>${product.name}</h4>
+            <div class="price">${product.price}</div>
+        </div>
+    `).join("");
 }
 
 // Отслеживание ввода в поиск
