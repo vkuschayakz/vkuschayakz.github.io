@@ -50,7 +50,7 @@ let currentCategory = "all";
 let searchQuery = "";
 
 // ЗАМЕНИТЕ ЭТОТ НОМЕР НА ВАШ (без +, пробелов и дефисов)
-const WHATSAPP_NUMBER = "https://wa.me/c/215259533066333"; 
+const WHATSAPP_NUMBER = "+77073336787"; 
 
 function displayProducts() {
     const filtered = products.filter(product => {
@@ -64,22 +64,21 @@ function displayProducts() {
         return;
     }
 
-  container.innerHTML = filtered.map(product => {
-    // Формируем текст сообщения для WhatsApp
-    const message = encodeURIComponent(`Здравствуйте! Хочу заказать товар: "${product.name}" по цене ${product.price}.`);
-    
-    // ПРАВИЛЬНАЯ ССЫЛКА С КОСОЙ ЧЕРТОЙ "/"
-    const whatsappLink = `https://wa.me/c/77073336787`;
+    container.innerHTML = filtered.map(product => {
+        // Формируем текст сообщения для WhatsApp (автоматически подставляем название товара)
+        const message = encodeURIComponent(`Здравствуйте! Хочу заказать товар: "${product.name}" по цене ${product.price}.`);
+        const whatsappLink = `https://wa.me{WHATSAPP_NUMBER}?text=${message}`;
 
-    return `
-        <div class="product-card">
-            <img src="${product.image}" alt="${product.name}" class="product-img">
-            <h4>${product.name}</h4>
-            <div class="price">${product.price}</div>
-            <a href="${whatsappLink}" target="_blank" class="buy-btn">Купить</a>
-        </div>
-    `;
-}).join("");
+        return `
+            <div class="product-card">
+                <img src="${product.image}" alt="${product.name}" class="product-img">
+                <h4>${product.name}</h4>
+                <div class="price">${product.price}</div>
+                <!-- Кнопка КУПИТЬ со ссылкой на ваш WhatsApp -->
+                <a href="${whatsappLink}" target="_blank" class="buy-btn">Купить</a>
+            </div>
+        `;
+    }).join("");
 }
 
 // Отслеживание ввода в поиск
