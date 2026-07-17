@@ -171,29 +171,3 @@ header {
     from {transform: scale(0.8); opacity: 0;}
     to {transform: scale(1); opacity: 1;}
 }
-
-/* Кнопка Купить в WhatsApp */
-.buy-btn {
-    display: block;
-    background-color: #25D366; /* Фирменный зеленый цвет WhatsApp */
-    color: white;
-    text-decoration: none;
-    padding: 12px;
-    border-radius: 6px;
-    font-weight: bold;
-    font-size: 16px;
-    margin-top: auto; /* Прижимает кнопку к низу карточки */
-    transition: background-color 0.2s ease, transform 0.1s ease;
-}
-
-/* Эффект при наведении курсора */
-.buy-btn:hover {
-    background-color: #128C7E; /* Темно-зеленый при наведении */
-    transform: translateY(-2px); /* Легкое приподнятие */
-}
-
-/* Эффект при клике */
-.buy-btn:active {
-    transform: translateY(0);
-}
-
