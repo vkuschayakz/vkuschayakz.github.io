@@ -69,7 +69,7 @@ function displayProducts() {
     const message = encodeURIComponent(`Здравствуйте! Хочу заказать товар: "${product.name}" по цене ${product.price}.`);
     
     // ПРАВИЛЬНАЯ ССЫЛКА С КОСОЙ ЧЕРТОЙ "/"
-    const whatsappLink = `https://wa.me/c/215259533066333`;
+    const whatsappLink = `https://wa.me/c/77073336787`;
 
     return `
         <div class="product-card">
