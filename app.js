@@ -41,10 +41,15 @@ const container = document.getElementById("products-container");
 const searchInput = document.getElementById("search-input");
 const filterBtns = document.querySelectorAll(".filter-btn");
 
+// Элементы модального окна
+const modal = document.getElementById("image-modal");
+const modalImg = document.getElementById("modal-img");
+const modalClose = document.querySelector(".modal-close");
+
 let currentCategory = "all";
 let searchQuery = "";
 
-// Функция для отрисовки товаров на экране
+/// Функция для отрисовки товаров на экране
 function displayProducts() {
     const filtered = products.filter(product => {
         const matchesCategory = currentCategory === "all" || product.category === currentCategory;
